@@ -120,6 +120,10 @@ main {
   height: 100%;
 }
 
+/* .addBg #add,.subtractBg #subtract, .multiplyBg #multiply, .divideBg #divide {
+  background-color: red;
+} */
+
 #subtract {
   grid-area: subtract;
   width: 25%;
@@ -167,4 +171,8 @@ h1 {
 footer {
   background-color: rgb(128, 19, 0);
   grid-area: footer;
+}
+
+button[data-selected="true"] {
+  background-color: red;
 }

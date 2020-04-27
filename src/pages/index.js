@@ -4,7 +4,7 @@ export default () => {
   const [ input1, setInput1 ] = useState();
   const [ input2, setInput2 ] = useState();
   const [ operation, setOperation ] = useState("add");
-  const [ bg, setBg] = useState("");
+  // const [ classNames, setClassNames] = useState("");
 
   const handleInput1 = (event) => {
     const newInput = event.target.value;
@@ -35,30 +35,26 @@ export default () => {
     }
   };
 
-  const handleBackground = (event) => {
-    event.currentTarget.style.backgroundColor === "red" ? event.currentTarget.style.backgroundColor = "" : event.currentTarget.style.backgroundColor = "red";
-  };
-
   const buttonOperation = {
     add: (event) => {
       event.preventDefault();
       setOperation(newOperation => newOperation = "add");
-      handleBackground(event);
+      // setClassNames(newClassNames => newClassNames = 'addBg');
     },
     subtract: (event) => {
       event.preventDefault();
       setOperation(newOperation => newOperation = "subtract");
-      handleBackground(event);
+      // setClassNames(newClassNames => newClassNames = 'subtractBg');
     },
     multiply: (event) => {
       event.preventDefault();
       setOperation(newOperation => newOperation = "multiply");
-      handleBackground(event);
+      // setClassNames(newClassNames => newClassNames = 'multiplyBg');
     },
     divide: (event) => {
       event.preventDefault();
       setOperation(newOperation => newOperation = "divide");
-      handleBackground(event);
+      // setClassNames(newClassNames => newClassNames = 'divideBg');
     }
   };
 
@@ -68,10 +64,10 @@ export default () => {
         <div id="main-content">
           <input id="input1" type="number" name="input1" value={input1} onChange={handleInput1} />
           <div id="opBtns">
-            <button id="add" onClick={buttonOperation.add}>+</button>
-            <button id="subtract" onClick={buttonOperation.subtract}>-</button>
-            <button id="multiply" onClick={buttonOperation.multiply}>*</button>
-            <button id="divide" onClick={buttonOperation.divide}>/</button>
+            <button id="add" onClick={buttonOperation.add} data-selected={operation === "add"}>+</button>
+            <button id="subtract" onClick={buttonOperation.subtract} data-selected={operation === "subtract"}>-</button>
+            <button id="multiply" onClick={buttonOperation.multiply} data-selected={operation === "multiply"}>*</button>
+            <button id="divide" onClick={buttonOperation.divide} data-selected={operation === "divide"}>/</button>
           </div>
           <input id="input2" type="number" name="input2" value={input2} onChange={handleInput2} />
           <h1>=</h1>
